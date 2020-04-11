@@ -12,6 +12,7 @@ jobs:
     steps:
     - name: Install NSIS
       run: |
+        # NSIS 3.x is still in Debian's unstable sources
         bash -c 'echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list'
         apt-get -y update
         apt-get -y install -t unstable nsis
