@@ -11,7 +11,9 @@ jobs:
     steps:
     - name: Install NSIS
       run: |
-        Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+        iwr -useb get.scoop.sh -outfile 'install.ps1'
+        .\install.ps1 -RunAsAdmin
+        scoop update
         scoop bucket add extras
         scoop install nsis
     - name: Print NSIS version
